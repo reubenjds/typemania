@@ -12,11 +12,7 @@ export default function Game() {
 	const selected = searchParams.get("categories")?.split(",") || [];
 
 	const settings = {
-		showCountdown: searchParams.get("showCountdown") === "1",
 		allowRetry: searchParams.get("allowRetry") === "1",
-		highlightTyped: searchParams.get("highlightTyped") === "1",
-		increaseSpeed: searchParams.get("increaseSpeed") === "1",
-		hardMode: searchParams.get("hardMode") === "1",
 	};
 
 	const initialLives = settings.allowRetry ? 2 : 1;

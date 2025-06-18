@@ -17,10 +17,7 @@ export default function ConfigurePage() {
 	const [gameOptions, setGameOptions] = useState({
 		showCountdown: true,
 		allowRetry: false,
-		highlightTyped: true,
 		increaseSpeed: false,
-		hardMode: false,
-		nightMode: true,
 	});
 
 	const handleCategoryToggle = (category: string) => {
@@ -108,20 +105,8 @@ export default function ConfigurePage() {
 								label: "Allow one retry before game ends",
 							},
 							{
-								key: "highlightTyped",
-								label: "Highlight typed word in green",
-							},
-							{
 								key: "increaseSpeed",
 								label: "Increase speed over time",
-							},
-							{
-								key: "hardMode",
-								label: "Hard mode with random word lengths",
-							},
-							{
-								key: "nightMode",
-								label: "Night mode (dark theme)",
 							},
 						].map(({ key, label }) => (
 							<label
