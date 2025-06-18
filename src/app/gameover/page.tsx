@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
-export default function GameOver() {
+function GameOverContent() {
 	const router = useRouter();
 	const searchParams = useSearchParams();
 	const [score, setScore] = useState(0);
@@ -48,5 +48,13 @@ export default function GameOver() {
 				</Link>
 			</div>
 		</div>
+	);
+}
+
+export default function GameOver() {
+	return (
+		<Suspense fallback={<div>Loading...</div>}>
+			<GameOverContent />
+		</Suspense>
 	);
 }
