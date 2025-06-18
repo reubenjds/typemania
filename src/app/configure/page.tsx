@@ -15,9 +15,7 @@ export default function ConfigurePage() {
 		"colors",
 	]);
 	const [gameOptions, setGameOptions] = useState({
-		showCountdown: true,
 		allowRetry: false,
-		increaseSpeed: false,
 	});
 
 	const handleCategoryToggle = (category: string) => {
@@ -97,16 +95,8 @@ export default function ConfigurePage() {
 					<div className='space-y-4'>
 						{[
 							{
-								key: "showCountdown",
-								label: "Show countdown before game starts",
-							},
-							{
 								key: "allowRetry",
 								label: "Allow one retry before game ends",
-							},
-							{
-								key: "increaseSpeed",
-								label: "Increase speed over time",
 							},
 						].map(({ key, label }) => (
 							<label
