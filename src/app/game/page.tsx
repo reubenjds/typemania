@@ -19,6 +19,9 @@ export default function Game() {
 		hardMode: searchParams.get("hardMode") === "1",
 	};
 
+	const initialLives = settings.allowRetry ? 2 : 1;
+	const [lives, setLives] = useState(initialLives);
+
 	const [score, setScore] = useState(0);
 	const [sequence, setSequence] = useState<string[]>([]);
 	const [inputValue, setInputValue] = useState("");
@@ -76,6 +79,7 @@ export default function Game() {
 
 	useEffect(() => {
 		startNewSequence();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	useEffect(() => {
@@ -116,8 +120,8 @@ export default function Game() {
 			}
 		} else {
 			setIsCorrect(false);
-			if (settings.allowRetry && !usedWords.includes("__RETRY__")) {
-				setUsedWords((prev) => [...prev, "__RETRY__"]);
+			if (lives > 1) {
+				setLives((prev) => prev - 1);
 			} else {
 				const query = new URLSearchParams({
 					score: score.toString(),
@@ -134,8 +138,21 @@ export default function Game() {
 		<div className='min-h-screen bg-zinc-900 text-white px-6 py-10'>
 			<div className='flex items-center justify-between mb-8'>
 				<h1 className='text-2xl font-bold'>TypeMania</h1>
-				<div className='text-sm text-zinc-400'>
-					Score: <span className='text-orange-400 font-semibold'>{score}</span>
+				<div className='flex items-center gap-6'>
+					<div className='text-sm text-zinc-400'>
+						Score:{" "}
+						<span className='text-orange-400 font-semibold'>{score}</span>
+					</div>
+					{settings.allowRetry && (
+						<div className='text-sm text-zinc-400 flex items-center gap-1'>
+							Lives:
+							{Array.from({ length: lives }).map((_, i) => (
+								<span key={i} className='text-red-400 text-lg'>
+									♥
+								</span>
+							))}
+						</div>
+					)}
 				</div>
 			</div>
 
