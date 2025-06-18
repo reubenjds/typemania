@@ -1,11 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { wordBanks } from "@/lib/wordBanks";
 
-export default function ConfigurePage() {
+function ConfigureContent() {
 	const router = useRouter();
 	const searchParams = useSearchParams();
 	const difficulty = searchParams.get("difficulty") || "medium";
@@ -129,5 +129,13 @@ export default function ConfigurePage() {
 				</div>
 			</main>
 		</div>
+	);
+}
+
+export default function ConfigurePage() {
+	return (
+		<Suspense fallback={<div>Loading...</div>}>
+			<ConfigureContent />
+		</Suspense>
 	);
 }
