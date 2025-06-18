@@ -13,19 +13,9 @@ export default function Home() {
 					</div>
 					<nav className='flex items-center gap-6'>
 						<Link
-							href='#'
-							className='text-sm text-zinc-400 hover:text-white transition-colors'>
-							Leaderboard
-						</Link>
-						<Link
-							href='#'
-							className='text-sm text-zinc-400 hover:text-white transition-colors'>
-							How to Play
-						</Link>
-						<Link
-							href='#'
-							className='text-sm text-zinc-400 hover:text-white transition-colors'>
-							About
+							href='/'
+							className='text-sm text-zinc-400 hover:text-white transition'>
+							Play
 						</Link>
 					</nav>
 				</div>
