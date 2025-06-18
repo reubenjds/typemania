@@ -123,11 +123,10 @@ export default function Game() {
 			if (lives > 1) {
 				setLives((prev) => prev - 1);
 			} else {
-				const query = new URLSearchParams({
-					score: score.toString(),
-					sequenceLength: sequence.length.toString(),
-				});
-				router.push(`/gameover?${query.toString()}`);
+				const preservedParams = new URLSearchParams(searchParams.toString());
+				preservedParams.set("score", score.toString());
+				preservedParams.set("sequenceLength", sequence.length.toString());
+				router.push(`/gameover?${preservedParams.toString()}`);
 			}
 		}
 
