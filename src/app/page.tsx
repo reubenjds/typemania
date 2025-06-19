@@ -46,7 +46,7 @@ export default function Home() {
 							title: "Medium",
 							description: "For experienced players",
 							details: [
-								"5-8 word sequences",
+								"3-8 word sequences",
 								"Moderate display speed",
 								"Mixed word categories",
 							],
@@ -56,7 +56,7 @@ export default function Home() {
 							title: "Hard",
 							description: "For memory masters",
 							details: [
-								"8-12 word sequences",
+								"3-12 word sequences",
 								"Fast display speed",
 								"Complex word categories",
 							],
