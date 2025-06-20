@@ -15,6 +15,8 @@ export default function Game() {
 		allowRetry: searchParams.get("allowRetry") === "1",
 	};
 
+	const randomSequence = searchParams.get("randomSequence") === "1";
+
 	const initialLives = settings.allowRetry ? 2 : 1;
 	const [lives, setLives] = useState(initialLives);
 	const [score, setScore] = useState(0);
@@ -47,7 +49,7 @@ export default function Game() {
 
 	const getRandomWordsToAdd = (currentScore: number) => {
 		const multiWordChance = Math.min(currentScore * 0.15, 0.6);
-		if (Math.random() < multiWordChance) {
+		if (Math.random() < multiWordChance && randomSequence) {
 			const maxWords = currentScore >= 8 ? 3 : 2;
 			return Math.floor(Math.random() * (maxWords - 1)) + 2;
 		}

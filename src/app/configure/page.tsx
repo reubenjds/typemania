@@ -98,6 +98,10 @@ function ConfigureContent() {
 								key: "allowRetry",
 								label: "Allow one retry before game ends",
 							},
+							{
+								key: "randomSequence",
+								label: "Randomize the amount of words added to the sequence",
+							},
 						].map(({ key, label }) => (
 							<label
 								key={key}
